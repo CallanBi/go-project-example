@@ -21,6 +21,7 @@ func Init(filePath string) error{
 	return nil
 }
 
+// 从本地Topic文件中读取数据，初始化topicIndexMap索引
 func initTopicIndexMap(filePath string) error {
 	open, err := os.Open(filePath + "topic")
 	if err != nil {
@@ -55,9 +56,11 @@ func initPostIndexMap(filePath string) error{
 		}
 		posts, ok := postTmpMap[post.ParentId]
 		if !ok {
+			// 未找到，则创建slice
 			postTmpMap[post.ParentId] = []*Post{&post}
 			continue
 		}
+		// 找到了，追加slice
 		posts = append(posts, &post)
 		postTmpMap[post.ParentId] = posts
 	}

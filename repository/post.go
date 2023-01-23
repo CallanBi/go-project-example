@@ -12,8 +12,10 @@ type Post struct {
 }
 type PostDao struct {
 }
+// Dao: Data Access Object
 var (
 	postDao *PostDao
+	// 适合高并发场景下只执行一次的场景（单例模式）
 	postOnce sync.Once
 )
 func NewPostDaoInstance() *PostDao {

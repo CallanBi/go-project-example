@@ -6,6 +6,8 @@ import (
 	"github.com/Moonlight-Zhao/go-project-example/service"
 )
 
+// controller 层需要做的事情：
+// 1. 包装返回结果：状态码，错误信息，返回数据
 type PageData struct {
 	Code int64       `json:"code"`
 	Msg  string      `json:"msg"`

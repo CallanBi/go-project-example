@@ -1,12 +1,14 @@
 package main
 
 import (
+	"os"
+
 	"github.com/Moonlight-Zhao/go-project-example/cotroller"
 	"github.com/Moonlight-Zhao/go-project-example/repository"
 	"gopkg.in/gin-gonic/gin.v1"
-	"os"
 )
 
+// router 层
 func main() {
 	if err := Init("./data/"); err != nil {
 		os.Exit(-1)
